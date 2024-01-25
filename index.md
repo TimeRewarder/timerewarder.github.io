@@ -1,4 +1,5 @@
-# Abstract
+# Imitation Learning from Observation with Automatic Discount Scheduling
+## Abstract
 Humans often acquire new skills through observation and imitation.
 For robotic agents, learning from the plethora of unlabeled video demonstration data available on the Internet necessitates imitating the expert without access to its action, presenting a challenge known as Imitation Learning from Observation (ILfO).
 A common approach to tackle ILfO problems is to convert them into Inverse Reinforcement Learning (RL) problems, utilizing a proxy reward computed from the agent's and the expert's observations.

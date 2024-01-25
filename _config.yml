@@ -3,3 +3,4 @@ plugins:
 - jekyll-remote-theme # add this line to the plugins list if you already have one
 title: Imitation Learning from Observation with Automatic Discount Scheduling
 description: Yuyang Liu∗, Weijun Dong∗, Yingdong Hu, Chuan Wen, Zhao-Heng Yin, Chongjie Zhang, Yang Gao
+ICLR 2024 paper

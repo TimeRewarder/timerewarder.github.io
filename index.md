@@ -42,3 +42,14 @@ Against ILfO baselines: on 9 challenging Meta-World tasks, with 8 random seeds.
 
 ​	![performance](index.assets/result.jpg)
 
+## Citation
+
+```
+@article{liu2023imitation,
+  title={Imitation Learning from Observation with Automatic Discount Scheduling},
+  author={Liu, Yuyang and Dong, Weijun and Hu, Yingdong and Wen, Chuan and Yin, Zhao-Heng and Zhang, Chongjie and Gao, Yang},
+  journal={arXiv preprint arXiv:2310.07433},
+  year={2023}
+}
+```
+

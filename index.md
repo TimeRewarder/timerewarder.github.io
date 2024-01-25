@@ -24,24 +24,21 @@ Challenges on ILfO with proxy reward: failure cases.
 
 <img src="index.assets/fail_case.gif" alt="fail_case" style="zoom: 33%;" />
 
-- Before learned earlier behaviors, proxy rewards of later steps negatively impact the agent.
+We find that before learned earlier behaviors, proxy rewards of later steps negatively impact the agent.
 
-  ![image-20240125205604479](index.assets/image-20240125205604479.png)
+![image-20240125205604479](index.assets/image-20240125205604479.png)
 
-	> Can explore trajectories like (b), but fails to learn grasping. Value for lifting the ball (b) << Value for pushing it away (a).
+> Can explore trajectories like (b), but fails to learn grasping. Value for lifting the ball (b) << Value for pushing it away (a).
 
 ## Method
 
 For tasks with progress dependency, we restrict the impact of later rewards until the agent has mastered the previous behaviors by adaptively alters the discount factor.
 
-![discount](index.assets/discount.gif)
+![adaptive](index.assets/adaptive.jpg)
 
 ## Results
 
-- Against ILfO baselines: on 9 challenging Meta-World tasks, with 8 random seeds.
+Against ILfO baselines: on 9 challenging Meta-World tasks, with 8 random seeds.
 
 ​	![performance](index.assets/result.jpg)
 
-- Visulization of adaptive scheduling on different tasks.
-
-  ![adaptive](index.assets/adaptive.jpg)

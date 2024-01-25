@@ -1,2 +1,2 @@
 # ads_page
-github page for the ADS paper
+GitHub page for the ADS paper

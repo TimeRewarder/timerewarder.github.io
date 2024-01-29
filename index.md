@@ -1,4 +1,4 @@
-This is a poster paper of the 12th International Conference on Learning Representations (ICLR 2024). The [official code](https://github.com/dwjshift/GDIL/tree/clean) is available on GitHub.
+This is a poster paper for the 12th International Conference on Learning Representations (ICLR 2024). The [official code](https://github.com/dwjshift/IL_ADS) is available on GitHub.
 
 **Paper Link:**
 
@@ -24,7 +24,7 @@ Challenges on ILfO with proxy reward: failure cases.
 
 <img src="index.assets/fail_case.gif" alt="fail_case" style="zoom: 33%;" />
 
-We find that before learned earlier behaviors, proxy rewards of later steps negatively impact the agent.
+We find that before earlier behaviors are learned, proxy rewards of later steps negatively impact the agent.
 
 ![image-20240125205604479](index.assets/image-20240125205604479.png)
 

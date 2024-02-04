@@ -32,8 +32,8 @@ Challenges on ILfO with proxy reward:  before earlier behaviors are learned, pro
 > Can explore trajectories like (b), but fails to learn grasping. This is because [Value for lifting the ball (b)] << [Value for pushing it away (a)].
 -->
 
-## Method
-To address the above issue, we propose to restrict the impact of later rewards until the agent has mastered the previous behavior. Our **Automatic Discount Scheduling** method continuously monitors the agent’s learning progress and dynamically assigns a discount factor that positively correlates with the progress.
+## Solution: Automatic Discount Scheduling
+To address the above issue, we propose to restrict the impact of later rewards until the agent has mastered the previous behavior. Our method continuously monitors the agent’s learning progress and dynamically assigns a discount factor that positively correlates with the progress.
 
 <!--
 For tasks with progress dependency, we restrict the impact of later rewards until the agent has mastered the previous behaviors by adaptively alters the discount factor.

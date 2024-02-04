@@ -21,10 +21,10 @@ Here are some examples of how our ADS method performs better than SOTAs in Meta-
 
 
 ## When and Why Previous Proxy-Reward-Based Methods Fail?
-Consider the following *basketball* task. If we experiment with a simplified setting which only instructs the agent to learn the expert's early behaviors (reaching for and grasping the ball), the agent quickly acquires these skills. However, when tasked with learning the entire expert demonstration, the same method fails to acquire the initial grasping skill and instead moves the empty gripper directly to the basket. This is an intriguing finding: rewarding later steps in a trajectory seems negatively impact the agent’s ability to learn the earlier behaviors.
+Consider the following *basketball* task. If we experiment with a simplified setting which only instructs the agent to learn the expert's early behaviors (reaching for and grasping the ball), the agent quickly acquires these skills. However, when tasked with learning the entire expert demonstration, the same method fails to acquire the initial grasping skill and instead moves the empty gripper directly to the basket. This is an intriguing finding: *rewarding later steps in a trajectory seems negatively impact the agent’s ability to learn the earlier behaviors.*
 ![motivation](index.assets/motivation.jpg)
 
-We observe a similar phenomenon in many manipulation tasks characterized by **progress dependencies**, where the agents must first acquire earlier behaviors before progressing to later ones. In these tasks, the agents trained by previous proxy-reward-based ILfO approaches often fail to mimic the expert's early behaviors. Instead, agents resort to optimizing rewards in later stages by moving to states that appear similar to demonstrated states. These locally optimal but incorrect solutions can hinder the agent's exploration of earlier critical behaviors. (See Section 3 in our paper.)
+We observe a similar phenomenon in many manipulation tasks characterized by **progress dependencies**. In these tasks, the agents trained by previous proxy-reward-based ILfO approaches often fail to mimic the expert's early behaviors. Instead, agents resort to optimizing rewards in later stages by moving to states that appear similar to demonstrated states. These locally optimal but incorrect solutions can hinder the agent's exploration of earlier critical behaviors. (See Section 3 in our paper.)
 
 <!--
 Challenges on ILfO with proxy reward:  before earlier behaviors are learned, proxy rewards of later steps negatively impact the agent.

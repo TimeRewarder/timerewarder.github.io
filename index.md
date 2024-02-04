@@ -7,7 +7,9 @@ This is a poster paper for the 12th International Conference on Learning Represe
 
 
 
-This paper focus on the challenge known as **Imitation Learning from Observation (ILfO)**, where  robots imitate the expert without access to its action. A common approach to tackle ILfO problems is to convert them into Inverse Reinforcement Learning problems, utilizing a proxy reward computed from the agent's and the expert's observations. We identify that tasks characterized by a **progress dependency** property pose significant challenges for such approaches; in these tasks, the agent needs to initially learn the expert's preceding behaviors before mastering the subsequent ones. Our investigation reveals that the main cause is that the reward signals assigned to later steps hinder the learning of initial behaviors. To address this challenge, we present an **Automatic Discount Scheduling (ADS)** mechanism that adaptively alters the discount factor in RL  during the training phase, prioritizing earlier rewards initially and gradually engaging later rewards only when the earlier behaviors have been mastered. Our method significantly outperforms state-of-the-art methods on nine Meta-World tasks, including those that are unsolvable by them.
+This paper focus on the challenge known as **Imitation Learning from Observation (ILfO)**, where  robots imitate the expert without access to its action. A common ILfO approach is utilizing a proxy reward computed from the agent's and the expert's observations. We identify that tasks with **progress dependency** property pose significant challenges for such approaches, because the reward signals assigned to later steps hinder the learning of initial behaviors. To address this issue, we present an **Automatic Discount Scheduling (ADS)** mechanism that adaptively alters the discount factor during the training phase, prioritizing earlier rewards initially and gradually engaging later rewards only when the earlier behaviors have been mastered. 
+
+Here are some examples of how our ADS methods perform better than SOTAs in Meta-World tasks:
 
 ![example](index.assets/example.mp4)
 

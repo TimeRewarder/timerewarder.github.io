@@ -19,11 +19,11 @@
       <h1 class="project-name">{{ page.title | default: site.title | default: site.github.repository_name }}</h1>
       <h2 class="project-tagline">{{ page.description | default: site.description | default: site.github.project_tagline }}</h2>
       {% if site.github.is_project_page %}
-        <a href="{{ site.arxiv_url }}" class="btn">Arxiv</a>
-        <a href="{{ site.openreview_url }}" class="btn">Openreview</a>
+        <a href="{{ site.github.arxiv_url }}" class="btn">Arxiv</a>
+        <a href="{{ site.github.openreview_url }}" class="btn">Openreview</a>
       {% endif %}
       {% if site.show_downloads %}
-        <a href="{{ site.code_url }}" class="btn">Code</a>
+        <a href="{{ site.github.code_url }}" class="btn">Code</a>
       {% endif %}
     </header>
 

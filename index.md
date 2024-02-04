@@ -15,11 +15,11 @@ Here are some examples of how our ADS methods perform better than SOTAs in Meta-
 
 ## Motivation
 
-We find that before earlier behaviors are learned, proxy rewards of later steps negatively impact the agent.
+Challenges on ILfO with proxy reward:  before earlier behaviors are learned, proxy rewards of later steps negatively impact the agent.
 
-![image-20240125205604479](index.assets/image-20240125205604479.png)
+![ab](index.assets/ab.png)
 
-> Can explore trajectories like (b), but fails to learn grasping. Value for lifting the ball (b) << Value for pushing it away (a).
+> Can explore trajectories like (b), but fails to learn grasping. This is because [Value for lifting the ball (b)] << [Value for pushing it away (a)].
 
 ## Method
 

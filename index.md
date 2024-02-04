@@ -11,7 +11,7 @@ This paper focuses on the challenge known as **Imitation Learning from Observati
 
 Here are some examples of how our ADS methods perform better than SOTAs in Meta-World tasks:
 
-![example](index.assets/example.mp4)
+![example](index.assets/example2.gif)
 
 ## Motivation
 

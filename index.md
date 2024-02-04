@@ -15,10 +15,6 @@ Here are some examples of how our ADS methods perform better than SOTAs in Meta-
 
 ## Motivation
 
-Challenges on ILfO with proxy reward: failure cases.
-
-<img src="index.assets/fail_case.gif" alt="fail_case" style="zoom: 33%;" />
-
 We find that before earlier behaviors are learned, proxy rewards of later steps negatively impact the agent.
 
 ![image-20240125205604479](index.assets/image-20240125205604479.png)

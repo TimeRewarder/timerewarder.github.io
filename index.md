@@ -1,5 +1,9 @@
 This is a poster paper for the 12th International Conference on Learning Representations (ICLR 2024). The [official code](https://github.com/dwjshift/IL_ADS) is available on GitHub.
 
+<a href="{{ site.github.repository_url }}" class="btn">Arxiv</a>
+<a href="{{ site.github.zip_url }}" class="btn">Openreview</a>
+<a href="{{ site.github.tar_url }}" class="btn">Code</a>
+
 **Paper Link:**
 
 - Latest version: [arxiv link](https://arxiv.org/abs/2310.07433)

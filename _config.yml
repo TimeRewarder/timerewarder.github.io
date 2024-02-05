@@ -1,9 +1,7 @@
 remote_theme: pages-themes/cayman@v0.2.0
 title: Imitation Learning from Observation with Automatic Discount Scheduling (ICLR 24)
 description: Yuyang Liu∗, Weijun Dong∗, Yingdong Hu, Chuan Wen, Zhao-Heng Yin, Chongjie Zhang, Yang Gao
-show_downloads: True
 github:
-  is_project_page: True
   repository_url: https://github.com/dwjshift/IL_ADS
   zip_url: https://arxiv.org/abs/2310.07433
   tar_url: https://openreview.net/forum?id=pPJTQYOpNI

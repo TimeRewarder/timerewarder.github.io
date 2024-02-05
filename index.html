@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="A Universal Semantic-Geometric Representation for Robotic Manipulation">
+  <meta name="keywords" content="Visual Representation Learning, Robotic Manipul">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SGR</title>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FV4ZJ9PVSV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-FV4ZJ9PVSV');
+  </script>
+
+  <script>
+    function updateSingleVideo() {
+      var task = document.getElementById("single-menu-tasks").value;
+      var inst = document.getElementById("single-menu-instances").value;
+
+      console.log("single", task, inst)
+
+      var video = document.getElementById("multi-task-result-video");
+      video.src = "media/results/sim_rollouts/" + 
+                  "compressed_" +
+                  task +
+                  "-" +
+                  inst +
+                  ".mp4"
+      video.playbackRate = 1.75;
+      video.play();
+    }
+
+    function updateQpredVideo() {
+      var task = document.getElementById("single-menu-qpred").value;
+
+      console.log("qpred", task)
+
+      var video = document.getElementById("q-pred-video");
+      video.src = "media/results/qpred/" + 
+                  task + 
+                  ".mp4"
+      video.playbackRate = 1.75;
+      video.play();
+    }
+
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body onload="updateSingleVideo(); updateQpredVideo();">
+
+<!-- <nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" target="_blank" href="https://mohitshridhar.com">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More Research
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" target="_blank" href="https://cliport.github.io">
+            CLIPort
+          </a>
+          <a class="navbar-item" target="_blank" href="https://askforalfred.com/">
+            ALFRED
+          </a>
+          <a class="navbar-item" target="_blank" href="http://alfworld.github.io/">
+            ALFWorld
+          </a>
+          <a class="navbar-item" target="_blank" href="https://arxiv.org/pdf/1806.03831.pdf">
+            INGRESS
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</nav> -->
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">A Universal Semantic-Geometric Representation for Robotic Manipulation</h1>
+          <h3 class="title is-4 conference-authors"><a target="_blank" href="https://www.robot-learning.org/">CoRL 2023</a></h3>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a target="_blank" href="https://tongzhangthu.github.io/">Tong Zhang</a><sup>1, 2, 3*</sup>,</span>
+            <span class="author-block">
+              <a target="_blank" href="https://yingdong-hu.github.io/">Yingdong Hu</a><sup>1, 2, 3*</sup>,</span>
+            <span class="author-block">
+              <a target="_blank" href="https://semantic-geometric-representation.github.io/">Hanchen Cui</a><sup>3</sup>,</span>
+            <span class="author-block">
+              <a target="_blank" href="https://hangzhaomit.github.io/">Hang Zhao</a><sup>1, 2, 3</sup>,</span>
+            <span class="author-block">
+              <a target="_blank" href="https://yang-gao.weebly.com/">Yang Gao</a><sup>1, 2, 3</sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Tsinghua University,</span>
+            <span class="author-block"><sup>2</sup>Shanghai Artificial Intelligence Laboratory,</span>
+            <span class="author-block"><sup>3</sup>Shanghai Qi Zhi Institute</span>
+          </div>
+
+          <div class="is-size-6 publication-authors"> *Equal Contribution </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a target="_blank" href="https://arxiv.org/pdf/2306.10474.pdf"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <!-- arXiv Link. -->
+              <span class="link-block">
+                <a target="_blank" href="https://arxiv.org/abs/2306.10474"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <!-- <span class="link-block">
+                <a target="_blank" href="https://youtu.be/UdzoagBgWTA"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span> -->
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a target="_blank" href="https://semantic-geometric-representation.github.io/"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code (Coming Soon)</span>
+                  </a>
+              </span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="hero teaser">
+  <div class="container is-fullhd">
+    <div class="hero-body">
+      <img src="media/figures/teaser.png" alt="Description of the image">
+      <h2 class="subtitle has-text-centered">
+      </br>
+        Leveraging semantic information from massive 2D images and geometric information from 
+        3D point clouds, we present Semantic-Geometric Representation (SGR) that enables the robots 
+        to solve a range of simulated and real-world manipulation tasks.
+      </h2>
+    </div>
+  </div>
+</section>
+
+
+<!-- <section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-steve">
+          <video poster="" id="steve" autoplay muted loop height="100%">
+            <source src="media/intro/1_handsan.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-fullbody">
+          <video poster="" id="fullbody" autoplay muted loop height="100%">
+            <source src="media/intro/2_food_bin.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-shiba">
+          <video poster="" id="shiba" autoplay muted loop height="100%">
+            <source src="media/intro/4_drawer.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-blueshirt">
+          <video poster="" id="blueshirt" autoplay muted loop height="100%">
+            <source src="media/intro/3_marker.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-shiba">
+          <video poster="" id="shiba" autoplay muted loop height="100%">
+            <source src="media/intro/5_stick.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-shiba">
+          <video poster="" id="shiba" autoplay muted loop height="100%">
+            <source src="media/intro/7_sweeping.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+       <div class="item item-chair-tp">
+          <video poster="" id="chair-tp" autoplay muted loop height="100%">
+            <source src="media/intro/6_blocks.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<h2 class="subtitle has-text-centered">
+</br>
+  We also train <b>one multi-task Transformer from scratch</b> on 7 real-world tasks with just <b>53 demos</b> in total.
+</h2> -->
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Robots rely heavily on sensors, especially RGB and depth cameras, to 
+            perceive and interact with the world. RGB cameras record 2D images with 
+            rich semantic information while missing part of precise spatial information. 
+            On the other side, depth cameras offer critical 3D geometry data but limited 
+            semantics. Therefore, integrating both modalities is crucial for learning visual 
+            representations for robotic perception and control. However, current research 
+            predominantly focuses on only one of these modalities, neglecting the benefits 
+            of incorporating both.
+          </p>
+          <p>
+            To this end, we present <b>Semantic-Geometric Representation (SGR)</b>, a universal 
+            perception module for robotics that leverages the rich semantic information 
+            of large-scale pre-trained 2D models and inherits the merits of 3D spatial reasoning.
+          </p>
+          <p>
+            Our experiments demonstrate that SGR empowers the agent to successfully 
+            complete a diverse range of simulated and real-world robotic manipulation 
+            tasks, outperforming state-of-the-art methods significantly in both single-task 
+            and multi-task settings. Furthermore, SGR possesses the capability to 
+            generalize to novel semantic attributes, setting it apart from the other methods.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <div class="rows">
+
+    <div class="rows is-centered ">
+      <div class="row is-full-width">
+        <h2 class="title is-3"><span class="dperact">Semantic-Geometric Representation</span></h2>
+
+        <img src="media/figures/architecture.png" class="interpolation-image" 
+         alt="Interpolate start reference image." />
+        </br>
+        </br>
+          <p>
+            We first utilize a large vision foundation model, pre-trained on massive amounts 
+            of internet data (e.g., CLIP), to encode semantic feature maps from 2D images. 
+            Secondly, the context-rich 2D feature vectors are back-projected into 3D space 
+            and combined with the point cloud features that are extracted from point clouds 
+            using a shallow point-based network. These fused features are fed into a number 
+            of set abstraction (SA) blocks, which jointly model the cross-modal interaction 
+            between 2D semantics and 3D geometry information. Finally, based on the output 
+            representations from the SA blocks, we predict the robotic action to execute.
+          </p>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <h2 class="title is-3">Real-Robot Results</h2>
+
+    <div class="columns is-centered">
+
+      <!-- Visual Effects. -->
+      <div class="column">
+        <div class="content">
+          <h3 class="title is-5">Picking Red Block</h3>
+          <video id="dollyzoom" autoplay muted loop playsinline height="100%">
+            <source src="./media/real_robot/block.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <!--/ Visual Effects. -->
+
+      <!-- Matting. -->
+      <div class="column">
+        <h2 class="title is-5">Opening Drawer</h2>
+        <div class="columns is-centered">
+          <div class="column content">
+            <video id="dollyzoom" autoplay muted loop playsinline height="100%">
+              <source src="./media/real_robot/drawer.mp4"
+                      type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--/ Matting. -->
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <div class="columns is-centered">
+
+      <!-- Visual Effects. -->
+      <div class="column">
+        <div class="content">
+          <h3 class="title is-5">Hitting Ball</h3>
+          <video id="dollyzoom" autoplay muted loop playsinline height="100%">
+            <source src="./media/real_robot/stick.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <!--/ Visual Effects. -->
+
+      <!-- Matting. -->
+      <div class="column">
+        <h2 class="title is-5">Putting Apple in Bowl</h2>
+        <div class="columns is-centered">
+          <div class="column content">
+            <video id="dollyzoom" autoplay muted loop playsinline height="100%">
+              <source src="./media/real_robot/apple.mp4"
+                      type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--/ Matting. -->
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <div class="columns is-centered">
+
+      <!-- Visual Effects. -->
+      <div class="column">
+        <div class="content">
+          <h3 class="title is-5">Moving Cup to Goal</h3>
+          <video id="dollyzoom" autoplay muted loop playsinline height="100%">
+            <source src="./media/real_robot/cup.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <!--/ Visual Effects. -->
+
+      <!-- Matting. -->
+      <div class="column">
+        <h2 class="title is-5">Putting Banana in Pot</h2>
+        <div class="columns is-centered">
+          <div class="column content">
+            <video id="dollyzoom" autoplay muted loop playsinline height="100%">
+              <source src="./media/real_robot/banana.mp4"
+                      type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--/ Matting. -->
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <div class="columns is-centered">
+
+      <!-- Visual Effects. -->
+      <div class="column">
+        <div class="content">
+          <h3 class="title is-5">Pressing Handsan</h3>
+          <video id="dollyzoom" autoplay muted loop playsinline height="100%">
+            <source src="./media/real_robot/handsan.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <!--/ Visual Effects. -->
+
+      <!-- Matting. -->
+      <div class="column">
+        <h2 class="title is-5">Putting Marker in Drawer</h2>
+        <div class="columns is-centered">
+          <div class="column content">
+            <video id="dollyzoom" autoplay muted loop playsinline height="100%">
+              <source src="./media/real_robot/pen.mp4"
+                      type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--/ Matting. -->
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <div class="rows">
+
+
+    <!-- Animation. -->
+    <div class="rows is-centered ">
+      <div class="row is-full-width">
+
+        <!--/ Re-rendering. -->
+
+        <h2 class="title is-3">Simulation Results</h2>
+
+        <div class="columns">
+          <div class="column has-text-centered">
+            <!-- <h3 class="title is-5">One Multi-Task Transformer</h3> -->
+
+            <!-- Trained with
+            <div class="select is-small">
+              <select id="single-menu-demos" onchange="updateSingleVideo()">
+              <option value="10">10</option>
+              <option value="100" selected="selected">100</option>
+              </select>
+            </div> -->
+            One multi-task agent equipped with SGR, evaluated on 
+            <div class="select is-small">     
+              <select id="single-menu-tasks" onchange="updateSingleVideo()">
+              <option value="open_microwave" selected="selected">open microwave</option>
+              <option value="open_door">open door</option>
+              <option value="water_plants">water plants</option>
+              <option value="toilet_seat_up">toilet seat up</option>
+              <option value="phone_on_base">phone on base</option>
+              <option value="put_books_on_bookshelf">put books</option>
+              <option value="take_umbrella_out_of_umbrella_stand">take out umbrella</option>
+              <option value="open_fridge">open fridge</option>
+              </select>
+            </div>
+            episode
+            <div class="select is-small">
+              <select id="single-menu-instances" onchange="updateSingleVideo()">
+              <option value="s1">01</option>
+              <option value="s2" selected="selected">02</option>
+              <option value="s3">03</option>
+              </select>
+            </div>
+            <br/>
+            <br/>
+
+            <video id="multi-task-result-video"
+                   muted
+                   autoplay
+                   loop
+                   width="100%">
+              <source src="media/results/sim_rollouts/compressed_open_microwave-s2.mp4"
+                      type="video/mp4">
+            </video>
+          </div>
+        </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{zhang2023universal,
+      title={A Universal Semantic-Geometric Representation for Robotic Manipulation},
+      author={Zhang, Tong and Hu, Yingdong and Cui, Hanchen and Zhao, Hang and Gao, Yang},
+      journal={arXiv preprint arXiv:2306.10474},
+      year={2023}
+    }</code></pre>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column">
+        <div class="content has-text-centered">
+          <p>
+            Website template borrowed from <a href="https://github.com/nerfies/nerfies.github.io">NeRFies</a> and <a href="https://github.com/cliport/cliport.github.io">CLIPort</a>. 
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

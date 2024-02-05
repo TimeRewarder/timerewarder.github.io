@@ -6,7 +6,7 @@ This is a poster paper for the 12th International Conference on Learning Represe
 - Latest version: [arxiv link](https://arxiv.org/abs/2310.07433)
 - [Openreview submission](https://openreview.net/forum?id=pPJTQYOpNI)
 -->
-
+[arxiv](https://arxiv.org/abs/2310.07433) [openreview](https://openreview.net/forum?id=pPJTQYOpNI) [code](https://github.com/dwjshift/IL_ADS)
 
 This paper focuses on the problem known as **Imitation Learning from Observation (ILfO)**, where robots learn by imitating the expert's demonstration video without access to the expert's action. Common approaches convert ILfO problems into inverse reinforcement learning problems, using a proxy reward computed from the agent's and the expert's observations. However, we observe that the tasks with **progress dependency** property pose significant challenges for such approach; in these tasks, the agent needs to initially learn the expert's preceding behaviors before mastering the subsequent ones. We reveal the underlying mechanism of this phenomenon and present a novel **Automatic Discount Scheduling (ADS)** method to address the issue.
 

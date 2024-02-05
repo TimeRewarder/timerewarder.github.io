@@ -8,7 +8,15 @@ This is a poster paper for the 12th International Conference on Learning Represe
 -->
 <center>
   <button onclick="window.location.href='https://arxiv.org/abs/2310.07433';">
-      Arxiv
+      arxiv
+  </button>
+
+  <button onclick="window.location.href='https://openreview.net/forum?id=pPJTQYOpNI';">
+      openreview
+  </button>
+
+  <button onclick="window.location.href='https://github.com/dwjshift/IL_ADS';">
+      Code
   </button>
 </center>
 

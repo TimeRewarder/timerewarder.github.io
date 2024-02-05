@@ -5,6 +5,6 @@ title: Imitation Learning from Observation with Automatic Discount Scheduling (I
 description: Yuyang Liu∗, Weijun Dong∗, Yingdong Hu, Chuan Wen, Zhao-Heng Yin, Chongjie Zhang, Yang Gao
 show_downloads: True
 github:
-  code_url: https://github.com/dwjshift/IL_ADS
-  arxiv_url: https://arxiv.org/abs/2310.07433
-  openreview_url: https://openreview.net/forum?id=pPJTQYOpNI
+  repository_url: https://github.com/dwjshift/IL_ADS
+  zip_url: https://arxiv.org/abs/2310.07433
+  tar_url: https://openreview.net/forum?id=pPJTQYOpNI

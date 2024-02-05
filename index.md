@@ -8,7 +8,7 @@ This is a poster paper for the 12th International Conference on Learning Represe
 -->
 <center>
   <button onclick="window.location.href='https://arxiv.org/abs/2310.07433';">
-      arxiv
+    <img src="index.assets/arxiv-logo-1-1024x461.png">
   </button>
 
   <button onclick="window.location.href='https://openreview.net/forum?id=pPJTQYOpNI';">

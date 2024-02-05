@@ -5,7 +5,7 @@ body {
 
 .footer .icon-link {
     font-size: 25px;
-    color: #000;
+    color: #15380f;
 }
 
 .link-block a {
@@ -77,15 +77,12 @@ body {
     font-weight: bolder;
 }
 
-.publication-authors {
-}
-
 .publication-authors a {
    color: hsl(121, 100%, 36%) !important;
 }
 
 .conference-authors a {
-   color: hsl(0, 0%, 16%) !important;
+   color: hsl(145, 100%, 31%) !important;
 }
 
 .publication-authors a:hover {
@@ -100,8 +97,13 @@ body {
 }
 
 .publication-authors {
-  /*color: #4286f4;*/
+  color: #115d76;
 }
+
+.publication-institution {
+  color: #383d45;
+}
+
 
 .publication-video {
     position: relative;

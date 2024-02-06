@@ -75,7 +75,7 @@
       <div class="columns is-centered">
         <div class="column has-text-centered">
           <h1 class="title is-1 publication-title">Imitation Learning from Observation with Automatic Discount Scheduling</h1>
-          <h3 class="title is-4 conference-authors"><a target="_blank" href="https://www.robot-learning.org/">ICLR 2024</a></h3>
+          <h3 class="title is-4 conference-name"><a target="_blank" href="https://iclr.cc/Conferences/2024">ICLR 2024</a></h3>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
               Yuyang Liu<sup>1, 2, *</sup>,</span>
@@ -93,8 +93,8 @@
               Yang Gao<sup>1, 2, 5</sup>
             </span>
           </div>
-
-          <div class="is-size-6 publication-institution">
+        </br>
+          <div class="is-size-6 text_gray">
             <span class="author-block"><sup>1</sup>Tsinghua University,</span>
             <span class="author-block"><sup>2</sup>Shanghai Qi Zhi Institute,</span>
             <span class="author-block"><sup>3</sup>UC Berkeley,</span>
@@ -102,44 +102,34 @@
             <span class="author-block"><sup>5</sup>Shanghai Artificial Intelligence Laboratory</span>
           </div>
 
-          <div class="is-size-6 publication-institution"> *Equal Contribution </div>
+          <div class="is-size-6 text_gray"> *Equal Contribution </div>
 
           <div class="column has-text-centered">
             <div class="publication-links">
-              <!-- PDF Link. -->
+              <!-- Openreview Link. -->
               <span class="link-block">
                 <a target="_blank" href="https://openreview.net/forum?id=pPJTQYOpNI"
-                   class="external-link button is-normal is-rounded is-dark">
+                   class="external-link button is-danger is-rounded is-light">
                   <span class="icon">
-                      <i class="fas fa-file-pdf"></i>
+                      <i class="fas fa-file"></i>
                   </span>
-                  <span>Openreview</span>
+                  <span>OpenReview</span>
                 </a>
               </span>
               <!-- arXiv Link. -->
               <span class="link-block">
                 <a target="_blank" href="https://arxiv.org/abs/2310.07433"
-                   class="external-link button is-normal is-rounded is-dark">
+                   class="external-link button is-success is-rounded is-light">
                   <span class="icon">
                       <i class="ai ai-arxiv"></i>
                   </span>
                   <span>arXiv</span>
                 </a>
               </span>
-              <!-- Video Link. -->
-              <!-- <span class="link-block">
-                <a target="_blank" href="https://youtu.be/UdzoagBgWTA"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fab fa-youtube"></i>
-                  </span>
-                  <span>Video</span>
-                </a>
-              </span> -->
               <!-- Code Link. -->
               <span class="link-block">
                 <a target="_blank" href="https://github.com/dwjshift/IL_ADS"
-                   class="external-link button is-normal is-rounded is-dark">
+                   class="external-link button is-info is-rounded is-light">
                   <span class="icon">
                       <i class="fab fa-github"></i>
                   </span>
@@ -158,10 +148,8 @@
 
 <section class="section">
   <div class="container is-max-desktop">
-    <!-- Abstract. -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <!-- <h2 class="title is-3">Abstract</h2> -->
         <div class="content has-text-justified">
         <video id="example-result-video"
                   muted
@@ -174,13 +162,13 @@
         </br>
         </br>
           <p>
-            This paper focuses on the problem known as <b>Imitation Learning from Observation (ILfO)</b>, 
+            This paper focuses on the problem known as <b class="text_green">Imitation Learning from Observation (ILfO)</b>, 
             where robots learn by imitating the expert's demonstration video without access to the expert's action. 
             Common approaches convert ILfO problems into inverse reinforcement learning problems, using a proxy reward 
-            computed from the agent's and the expert's observations. However, we observe that the tasks with <b>progress 
+            computed from the agent's and the expert's observations. However, we observe that the tasks with <b class="text_green">progress 
             dependency</b> property pose significant challenges for such approach; in these tasks, the agent needs to 
             initially learn the expert's preceding behaviors before mastering the subsequent ones. We reveal the 
-            underlying mechanism of this phenomenon and present a novel <b>Automatic Discount Scheduling (ADS)</b> 
+            underlying mechanism of this phenomenon and present a novel <b class="text_green">Automatic Discount Scheduling (ADS)</b> 
             method to address the issue.
           </p>
         </div>
@@ -197,26 +185,25 @@
 
     <div class="rows is-centered ">
       <div class="row is-full-width">
-        <h2 class="title is-3"><span class="dperact">When and Why Previous Proxy-Reward-Based Methods Fail?</span></h2>
+        <h2 class="title is-3"><span class="text_blue">When and Why Previous Proxy-Reward-Based Methods Fail?</span></h2>
         <p>
-          Consider the following <i>basketball</i> task. If we experiment with a simplified setting that only instructs the agent 
+          Consider the following <i class="text_blue">basketball</i> task. If we experiment with a simplified setting that only instructs the agent 
           to learn the expert's early behaviors (reaching for and grasping the ball), the agent quickly acquires these skills. 
           However, when tasked with learning the entire expert demonstration, the same method fails to acquire the initial 
           grasping skill, and instead, moves the empty gripper directly to the basket. This is an intriguing finding: 
-          <i>rewarding later steps in a trajectory seems to negatively impact the agent’s ability to learn the earlier behaviors.</i>
+          <i class="text_blue">rewarding later steps in a trajectory seems to negatively impact the agent’s ability to learn the earlier behaviors.</i>
         </p>
         <img src="markdown_version/index.assets/motivation.jpg" class="interpolation-image" 
          alt="Interpolate start reference image." />
         </br>
         </br>
           <p>
-            We observe a similar phenomenon in many manipulation tasks characterized by <b>progress dependencies</b>. 
+            We observe a similar phenomenon in many manipulation tasks characterized by <b  class="text_green">progress dependencies</b>. 
             In these tasks, the agents trained by previous proxy-reward-based approaches often fail to mimic the 
             expert's early behaviors. Instead, they resort to optimizing rewards in later stages by moving to states 
             that appear similar to demonstrated states. These locally optimal but incorrect solutions can hinder 
             the agent's exploration of earlier critical behaviors. (See Section 3 in our paper.)
           </p>
-
       </div>
     </div>
   </div>
@@ -227,12 +214,13 @@
   <div class="container is-max-desktop">
     <div class="rows">
       <div class="row is-full-width">
-        <h2 class="title is-3"><span class="dperact">Solution: Automatic Discount Scheduling (ADS)</span></h2>
+        <h2 class="title is-3"><span class="text_blue">Solution: Automatic Discount Scheduling (ADS)</span></h2>
         <p>
           To address the above issue, we propose to restrict the impact of later rewards until the agent has mastered the previous behavior. 
           Our method continuously monitors the agent’s learning progress and dynamically assigns a discount factor that positively correlates 
           with the progress.
         </p>
+      </br>
         <img src="markdown_version/index.assets/adaptive.jpg" class="interpolation-image" 
          alt="Interpolate start reference image." />
       </div>
@@ -244,7 +232,7 @@
   <div class="container is-max-desktop">
     <div class="rows">
       <div class="row is-full-width">
-        <h2 class="title is-3"><span class="dperact">Experiment Results</span></h2>
+        <h2 class="title is-3"><span class="text_blue">Experiment Results</span></h2>
         <p>
           Comparison against start-of-the-art ILfO baselines on 9 challenging Meta-World tasks, with 8 random seeds:
         </p>
@@ -256,13 +244,13 @@
 
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop">
-    <h2 class="title">Citation</h2>
-    <pre><code>@article{liu2023imitation,
+    <h2 class="title"><span class="text_blue">Citation</span></h2>
+    <pre><code><span class="text_gray">@article{liu2023imitation,
       title={Imitation Learning from Observation with Automatic Discount Scheduling},
       author={Liu, Yuyang and Dong, Weijun and Hu, Yingdong and Wen, Chuan and Yin, Zhao-Heng and Zhang, Chongjie and Gao, Yang},
       journal={arXiv preprint arXiv:2310.07433},
       year={2023}
-    }</code></pre>
+    }</span></code></pre>
   </div>
 </section>
 

@@ -187,9 +187,9 @@
       <div class="row is-full-width">
         <h2 class="title is-3"><span class="text_blue">When and Why Previous Proxy-Reward-Based Methods Fail?</span></h2>
         <p>
-          Consider the following <i class="text_blue">basketball</i> task. If we experiment with a simplified setting that only instructs the agent 
+          Consider the following <i class="text_blue">basketball</i> task. If we (a) only instructs the agent 
           to learn the expert's early behaviors (reaching for and grasping the ball), the agent quickly acquires these skills. 
-          However, when tasked with learning the entire expert demonstration, the same method fails to acquire the initial 
+          However, when (b) tasked with learning the entire expert demonstration, the same method fails to acquire the initial 
           grasping skill, and instead, moves the empty gripper directly to the basket. This is an intriguing finding: 
           <i class="text_blue">rewarding later steps in a trajectory seems to negatively impact the agent’s ability to learn the earlier behaviors.</i>
         </p>
@@ -200,7 +200,7 @@
           <p>
             We observe a similar phenomenon in many manipulation tasks characterized by <b  class="text_green">progress dependencies</b>. 
             In these tasks, the agents trained by previous proxy-reward-based approaches often fail to mimic the 
-            expert's early behaviors. Instead, they resort to optimizing rewards in later stages by moving to states 
+            expert's early behaviors, and resort to optimizing rewards in later stages by moving to states 
             that appear similar to demonstrated states. These locally optimal but incorrect solutions can hinder 
             the agent's exploration of earlier critical behaviors. (See Section 3 in our paper.)
           </p>
@@ -219,6 +219,10 @@
           To address the above issue, we propose to restrict the impact of later rewards until the agent has mastered the previous behavior. 
           Our method continuously monitors the agent’s learning progress and dynamically assigns a discount factor that positively correlates 
           with the progress.
+        </p>
+      </br>
+        <p>
+          Here is the visualization of the discount factor scheduled during the training process of different tasks.
         </p>
       </br>
         <img src="markdown_version/index.assets/adaptive.jpg" class="interpolation-image" 

@@ -166,7 +166,7 @@
             where robots learn by imitating the expert's demonstration video without access to the expert's action. 
             Common approaches convert ILfO problems into inverse reinforcement learning problems, using a proxy reward 
             computed from the agent's and the expert's observations. However, we observe that the tasks with <b class="text_green">progress 
-            dependency</b> property pose significant challenges for such approach; in these tasks, the agent needs to 
+            dependency</b> property pose significant challenges for such approaches; in these tasks, the agent needs to 
             initially learn the expert's preceding behaviors before mastering the subsequent ones. We reveal the 
             underlying mechanism of this phenomenon and present a novel <b class="text_green">Automatic Discount Scheduling (ADS)</b> 
             method to address the issue.
@@ -187,7 +187,7 @@
       <div class="row is-full-width">
         <h2 class="title is-3"><span class="text_blue">When and Why Previous Proxy-Reward-Based Methods Fail?</span></h2>
         <p>
-          Consider the following <i class="text_blue">basketball</i> task. If we (a) only instructs the agent 
+          Consider the following <i class="text_blue">basketball</i> task. If we (a) only instruct the agent 
           to learn the expert's early behaviors (reaching for and grasping the ball), the agent quickly acquires these skills. 
           However, when (b) tasked with learning the entire expert demonstration, the same method fails to acquire the initial 
           grasping skill, and instead, moves the empty gripper directly to the basket. This is an intriguing finding: 
@@ -202,7 +202,7 @@
             In these tasks, the agents trained by previous proxy-reward-based approaches often fail to mimic the 
             expert's early behaviors, and resort to optimizing rewards in later stages by moving to states 
             that appear similar to demonstrated states. These locally optimal but incorrect solutions can hinder 
-            the agent's exploration of earlier critical behaviors. (See Section 3 in our paper.)
+            the agent's exploration of earlier critical behaviors.
           </p>
       </div>
     </div>
@@ -216,9 +216,9 @@
       <div class="row is-full-width">
         <h2 class="title is-3"><span class="text_blue">Solution: Automatic Discount Scheduling (ADS)</span></h2>
         <p>
-          To address the above issue, we propose to restrict the impact of later rewards until the agent has mastered the previous behavior. 
-          Our method continuously monitors the agent’s learning progress and dynamically assigns a discount factor that positively correlates 
-          with the progress.
+          To address the above issue, we propose encouraging the agent to master earlier parts of demonstrated behaviors before proceeding to subsequent ones. 
+          Our method incorporates a dynamic scheduling mechanism for the discount factor: start with a relatively small discount factor to prioritize the imitation of early episode behaviors; 
+          as the agent advances in the task, the discount factor increases adaptively, allowing the agent to tackle later stages only after it has effectively learned the earlier behaviors.
         </p>
       </br>
         <p>

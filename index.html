@@ -216,9 +216,11 @@
       <div class="row is-full-width">
         <h2 class="title is-3"><span class="text_blue">Solution: Automatic Discount Scheduling (ADS)</span></h2>
         <p>
-          To address the above issue, we propose to restrict the impact of later rewards until the agent has mastered the previous behavior. 
-          Our method continuously monitors the agent’s learning progress and dynamically assigns a discount factor that positively correlates 
-          with the progress.
+          To address the above issue, we propose encouraging the agent to master earlier parts of demonstrated behaviors before proceeding to subsequent ones. 
+          Our method incorporate a dynamic scheduling mechanism for the discount factor. 
+          During the initial training phase, we employ a relatively small discount factor. 
+          From an RL perspective, this low discount factor prioritizes the rewards obtained in the initial stages of an episode, thus helping the imitation of early episode behaviors. 
+          As the agent advances in the task, the discount factor increases adaptively, allowing the agent to tackle later stages only after it has effectively learned the earlier behaviors.
         </p>
       </br>
         <p>

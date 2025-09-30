@@ -60,7 +60,7 @@
             <span class="author-block"><sup>1</sup>Institute for Interdisciplinary Information Sciences, Tsinghua University,</span>
             <span class="author-block"><sup>2</sup>Shanghai Qi Zhi Institute,</span>
             <span class="author-block"><sup>3</sup>Shanghai Jiao Tong University,</span>
-            <span class="author-block"><sup>4</sup>University of Pennsylvania,</span>
+            <span class="author-block"><sup>4</sup>University of Pennsylvania</span>
           </div>
 
           <div class="is-size-6 text_gray"> *Equal Contribution </div>
@@ -120,8 +120,8 @@
             <source src="markdown_version/index.assets/example.mp4"
                     type="video/mp4">
           </video> -->
-        </br>
-        </br>
+        <!-- </br> -->
+        <!-- </br> -->
           <p>
             Designing effective rewards has long been a bottleneck for reinforcement learning in robotics—
             dense rewards often require extensive manual engineering and do not scale.
@@ -151,7 +151,7 @@
         </br>
           
         <p>
-          Humans can often judge how close a task is to completion simply by watching it unfold—
+          Humans can often judge how close a task is to completion simply by watching it unfold,
           without knowing the exact actions being taken. 
           Inspired by this intuition, TimeRewarder learns to infer task progress 
           directly from videos of expert demonstrations. 
@@ -164,10 +164,142 @@
           at every step. 
         </p>
         <p>
-          By distilling progress signals from passive videos—without action labels or manual supervision—
+          By distilling progress signals from passive videos without action labels or manual supervision,
           TimeRewarder provides a scalable path toward guiding robots through complex tasks 
           using nothing more than visual observation.
         </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <div class="rows">
+
+    <div class="rows is-centered ">
+      <div class="row is-full-width">
+        <h2 class="title is-3"><span class="text_blue">TimeRewarder: Traning and Reward Generation</span></h2>
+        </br>
+        <img src="img/method.jpg" class="interpolation-image" 
+         alt="Interpolate start reference image." />
+        </br>
+          
+        <p>
+          TimeRewarder is trained on expert videos in a self-supervised way to predict 
+          <em>temporal distances</em> between frames. 
+          The model learns which ordered pair of states represenst progress and which corresponds
+          to regressions or suboptimal behaviors.
+        </p>
+
+        <p>
+          During reinforcement learning, TimeRewarder converts these predicted distances between consecutive 
+          observations into dense rewards. Positive distances indicate meaningful advancement toward task completion, 
+          while negative distances penalize unproductive actions.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <div class="rows">
+
+    <div class="rows is-centered ">
+      <div class="row is-full-width">
+        <h2 class="title is-3"><span class="text_blue">Reinforcement Learning Performance</span></h2>
+          
+
+  </br>
+        <img src="img/tasks_visualization.jpg" class="interpolation-image" 
+         alt="Interpolate start reference image." />
+  </br>
+  <p>
+    On 9 out of 10 Meta-World tasks, TimeRewarder achieved the highest final success rates and sample efficiency, 
+    even surpassing policies trained with the environment’s ground-truth dense reward (green dashed line). 
+    This demonstrates that video-based, progress-driven rewards can replace manually designed 
+    reward functions while delivering superior performance.
+  </p>
+      </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <div class="rows">
+
+    <div class="rows is-centered ">
+      <div class="row is-full-width">
+
+
+  <h2 class="title is-3"><span class="text_blue">Reward Quality</span></h2>
+  </br>
+        <img src="img/vocvis.jpg" class="interpolation-image" 
+         alt="Interpolate start reference image." />
+  </br>
+  <p> 
+    Across all tasks, TimeRewarder consistently produced the highest Value–Order Correlation(VOC)
+    scores on held-out expert videos, demonstrating strong temporal coherence and the ability to generalize beyond 
+    training data.
+  </p>
+
+  </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <div class="rows">
+
+    <div class="rows is-centered ">
+      <div class="row is-full-width">
+
+  </br>
+        <img src="img/rewardvis.jpg" class="interpolation-image" 
+         alt="Interpolate start reference image." />
+  </br>
+
+  <p>
+    Unlike prior methods, TimeRewarder clearly distinguished meaningful progress from suboptimal behavior, 
+    assigning lower or negative rewards when the agent stalled or regressed. This temporally 
+    coherent feedback makes it easier for RL agents to recover from mistakes.
+  </p>
+
+  </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <div class="rows">
+
+    <div class="rows is-centered ">
+      <div class="row is-full-width">
+
+  <h2 class="title is-3"><span class="text_blue">Adding Cross-Domain Videos to Boost Performance</span></h2>
+  </br>
+        <img src="img/humancross.jpg" class="interpolation-image" 
+         alt="Interpolate start reference image." />
+  </br>
+  <p>
+    TimeRewarder can leverage cross-domain videos to further improve learning. 
+    For tasks with only a single in-domain demonstration, supplementing with 20 human videos 
+    dramatically increased success rates. This shows that the method can utilize unlabeled, 
+    diverse visual data to scale reward learning across different domains and embodiments.
+  </p>
+      </div>
       </div>
     </div>
   </div>

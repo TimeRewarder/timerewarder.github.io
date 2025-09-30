@@ -94,7 +94,7 @@
                   <span class="icon">
                       <i class="fab fa-github"></i>
                   </span>
-                  <span>Code</span>
+                  <span>Code(coming soon)</span>
                   </a>
               </span>
             </div>
@@ -112,25 +112,23 @@
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <div class="content has-text-justified">
-        <video id="example-result-video"
+        <!-- <video id="example-result-video"
                   muted
                   autoplay
                   loop
                   width="100%">
             <source src="markdown_version/index.assets/example.mp4"
                     type="video/mp4">
-          </video>
+          </video> -->
         </br>
         </br>
           <p>
-            This paper focuses on the problem known as <b class="text_green">Imitation Learning from Observation (ILfO)</b>, 
-            where robots learn by imitating the expert's demonstration video without access to the expert's action. 
-            Common approaches convert ILfO problems into inverse reinforcement learning problems, using a proxy reward 
-            computed from the agent's and the expert's observations. However, we observe that the tasks with <b class="text_green">progress 
-            dependency</b> property pose significant challenges for such approaches; in these tasks, the agent needs to 
-            initially learn the expert's preceding behaviors before mastering the subsequent ones. We reveal the 
-            underlying mechanism of this phenomenon and present a novel <b class="text_green">Automatic Discount Scheduling (ADS)</b> 
-            method to address the issue.
+            Designing effective rewards has long been a bottleneck for reinforcement learning in robotics—
+            dense rewards often require extensive manual engineering and do not scale.
+            Our work introduces <strong>TimeRewarder</strong>, a simple yet powerful method that learns
+            reward signals directly from passive videos, including robot demonstrations and even human activity.
+            By modeling how far apart two video frames are in task progress,
+            TimeRewarder provides step-wise proxy rewards that make reinforcement learning dramatically more efficient.
           </p>
         </div>
       </div>

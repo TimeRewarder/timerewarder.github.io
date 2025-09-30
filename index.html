@@ -144,37 +144,41 @@
 
     <div class="rows is-centered ">
       <div class="row is-full-width">
-        <h2 class="title is-3"><span class="text_blue">When and Why Previous Proxy-Reward-Based Methods Fail?</span></h2>
-        <p>
-          Consider the following <i class="text_blue">basketball</i> task. If we (a) only instruct the agent 
-          to learn the expert's early behaviors (reaching for and grasping the ball), the agent quickly acquires these skills. 
-          However, when (b) tasked with learning the entire expert demonstration, the same method fails to acquire the initial 
-          grasping skill, and instead, moves the empty gripper directly to the basket. This is an intriguing finding: 
-          <i class="text_blue">rewarding later steps in a trajectory seems to negatively impact the agent’s ability to learn the earlier behaviors.</i>
-        </p>
+        <h2 class="title is-3"><span class="text_blue">From Observation to Reward</span></h2>
         </br>
-        <img src="markdown_version/index.assets/motivation.jpg" class="interpolation-image" 
+        <img src="img/concept.jpg" class="interpolation-image" 
          alt="Interpolate start reference image." />
         </br>
-        
-          <p>
-            We observe a similar phenomenon in many manipulation tasks characterized by <b  class="text_green">progress dependencies</b>. 
-            In these tasks, the agents trained by previous proxy-reward-based approaches often fail to mimic the 
-            expert's early behaviors, and resort to optimizing rewards in later stages by moving to states 
-            that appear similar to demonstrated states. These locally optimal but incorrect solutions can hinder 
-            the agent's exploration of earlier critical behaviors.
-          </p>
+          
+        <p>
+          Humans can often judge how close a task is to completion simply by watching it unfold—
+          without knowing the exact actions being taken. 
+          Inspired by this intuition, TimeRewarder learns to infer task progress 
+          directly from videos of expert demonstrations. 
+        </p>
+        <p>
+          At its core, TimeRewarder models the <em>temporal distance</em> between two frames: 
+          which one is closer to task completion, and by how much. 
+          These predictions translate naturally into dense, step-wise rewards, 
+          allowing reinforcement learning agents to evaluate whether they are making progress 
+          at every step. 
+        </p>
+        <p>
+          By distilling progress signals from passive videos—without action labels or manual supervision—
+          TimeRewarder provides a scalable path toward guiding robots through complex tasks 
+          using nothing more than visual observation.
+        </p>
       </div>
     </div>
   </div>
 </section>
 
 
-<section class="section">
+<!-- <section class="section">
   <div class="container is-max-desktop">
     <div class="rows">
       <div class="row is-full-width">
-        <h2 class="title is-3"><span class="text_blue">Solution: Automatic Discount Scheduling (ADS)</span></h2>
+        <h2 class="title is-3"><span class="text_blue"></span></h2>
         <p>
           To address the above issue, we propose encouraging the agent to master earlier parts of demonstrated behaviors before proceeding to subsequent ones. 
           Our method incorporates a dynamic scheduling mechanism for the discount factor: start with a relatively small discount factor to prioritize the imitation of early episode behaviors; 
@@ -211,9 +215,9 @@
          alt="Interpolate start reference image." />
       </div>
     </div>
-  </div>
+  </div> -->
 
-<section class="section" id="BibTeX">
+<!-- <section class="section" id="BibTeX">
   <div class="container is-max-desktop">
     <h2 class="title"><span class="text_blue">Citation</span></h2>
     <pre><code><span class="text_gray">@inproceedings{
@@ -226,4 +230,4 @@ url={https://openreview.net/forum?id=pPJTQYOpNI}
 }
     </span></code></pre>
   </div>
-</section>
+</section> -->

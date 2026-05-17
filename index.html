@@ -35,28 +35,28 @@
   <script src="./static/js/index.js"></script>
 </head>
 
-<section class="hero">
+<body>
+
+<section class="hero hero-publication">
   <div class="hero-body">
     <div class="container is-max-desktop">
-      <div class="columns is-centered">
-        <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">TimeRewarder: Learning Dense Reward from Passive Videos via Frame-wise Temporal Distance</h1>
-          <h3 class="title is-4 conference-name"><a target="_blank" href="https://icml.cc/Conferences/2026">ICML 2026</a> spotlight paper</h3>
-          <div class="is-size-5 publication-authors">
-            <span class="author-block">
-              Yuyang Liu<sup>1, 2, *</sup>,</span>
-            <span class="author-block">
-              Chuan Wen<sup>3, *</sup>,</span>
-            <span class="author-block">
-              Yihang Hu<sup>1, 2</sup>,</span>
-            <span class="author-block">
-              Dinesh Jayaraman<sup>4</sup>,</span>
-            <span class="author-block">
-              Yang Gao<sup>1, 2, †</sup>
-            </span>
-          </div>
-        </br>
-          <div class="is-size-6 text_gray">
+      <div class="publication-header has-text-centered">
+        <p class="conference-badge">
+          <a target="_blank" rel="noopener noreferrer" href="https://icml.cc/Conferences/2026">ICML 2026</a>
+          <span class="badge-spotlight">Spotlight</span>
+        </p>
+
+        <h1 class="publication-title">TimeRewarder: Learning Dense Reward from Passive Videos via Frame-wise Temporal Distance</h1>
+
+        <div class="publication-authors is-size-5">
+          <span class="author-block">Yuyang Liu<sup>1, 2, *</sup>,</span>
+          <span class="author-block"><a target="_blank" rel="noopener noreferrer" href="https://alvinwen428.github.io/">Chuan Wen</a><sup>3, *</sup>,</span>
+          <span class="author-block">Yihang Hu<sup>1, 2</sup>,</span>
+          <span class="author-block"><a target="_blank" rel="noopener noreferrer" href="https://www.seas.upenn.edu/~dineshj/">Dinesh Jayaraman</a><sup>4</sup>,</span>
+          <span class="author-block"><a target="_blank" rel="noopener noreferrer" href="https://yang-gao.weebly.com/">Yang Gao</a><sup>1, 2, †</sup></span>
+        </div>
+
+        <div class="publication-affiliations is-size-6 text_gray">
             <span class="author-block"><sup>1</sup>Institute for Interdisciplinary Information Sciences, Tsinghua University,</span>
             <span class="author-block"><sup>2</sup>Shanghai Qi Zhi Institute,</span>
             <br>
@@ -64,43 +64,24 @@
             <span class="author-block"><sup>4</sup>University of Pennsylvania</span>
           </div>
 
-          <div class="is-size-6 text_gray"> *Equal Contribution &nbsp;|&nbsp; †Corresponding author </div>
+        <div class="publication-footnotes is-size-6 text_gray">
+          *Equal Contribution &nbsp;|&nbsp; †Corresponding author
+        </div>
 
-          <div class="column has-text-centered">
-            <div class="publication-links">
-              <!-- Openreview Link. -->
-              <!-- <span class="link-block">
-                <a target="_blank" href="https://openreview.net/forum?id=BAwXV3Y0cc&noteId=BAwXV3Y0cc"
-                   class="external-link button is-danger is-rounded is-light">
-                  <span class="icon">
-                      <i class="fas fa-file"></i>
-                  </span>
-                  <span>OpenReview</span>
-                </a>
-              </span> -->
-              <!-- arXiv Link. -->
-              <span class="link-block">
-                <a target="_blank" href="https://arxiv.org/abs/2509.26627"
-                   class="external-link button is-success is-rounded is-light">
-                  <span class="icon">
-                      <i class="ai ai-arxiv"></i>
-                  </span>
-                  <span>arXiv</span>
-                </a>
-              </span>
-              <!-- Code Link. -->
-              <span class="link-block">
-                <a target="_blank" href=""
-                   class="external-link button is-info is-rounded is-light">
-                  <span class="icon">
-                      <i class="fab fa-github"></i>
-                  </span>
-                  <span>Code(coming soon)</span>
-                  </a>
-              </span>
-            </div>
-
-          </div>
+        <div class="publication-links">
+          <span class="link-block">
+            <a target="_blank" rel="noopener noreferrer" href="https://arxiv.org/abs/2509.26627"
+               class="external-link button btn-paper is-rounded">
+              <span class="icon"><i class="ai ai-arxiv"></i></span>
+              <span>arXiv</span>
+            </a>
+          </span>
+          <span class="link-block">
+            <a class="external-link button btn-paper is-rounded is-disabled" aria-disabled="true">
+              <span class="icon"><i class="fab fa-github"></i></span>
+              <span>Code (coming soon)</span>
+            </a>
+          </span>
         </div>
       </div>
     </div>
@@ -108,12 +89,12 @@
 </section>
 
 
-<section class="section">
+<section class="section section-teaser">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <div class="content has-text-justified">
-        <video id="example-result-video"
+        <div class="content has-text-justified teaser-videos">
+        <video class="teaser-video" id="example-result-video-basketball"
                   muted
                   controls
                   autoplay
@@ -122,7 +103,7 @@
             <source src="img/basketball.mp4"
                     type="video/mp4">
           </video>
-        <video id="example-result-video"
+        <video class="teaser-video" id="example-result-video-window"
                   muted
                   controls
                   autoplay
@@ -372,3 +353,6 @@
       </div>
     </div>
   </div> -->
+
+</body>
+</html>

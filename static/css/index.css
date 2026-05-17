@@ -1,12 +1,243 @@
+:root {
+  --color-primary: #3870A5;
+  --color-primary-dark: #2d5a82;
+  --color-text: #383d45;
+  --color-text-muted: #747f90;
+  --color-border: #e8ecf0;
+  --color-bg-soft: #f4f7fb;
+  --max-content-width: 960px;
+}
+
 body {
-  font-family: 'Helvetica', sans-serif;
-  font-size: 18px;
+  font-family: 'Noto Sans', 'Google Sans', 'Helvetica', sans-serif;
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--color-text);
+  background: #fff;
+}
+
+/* ── Hero / title area ── */
+
+.hero-publication {
+  background: linear-gradient(180deg, var(--color-bg-soft) 0%, #ffffff 70%);
+}
+
+.hero-publication .hero-body {
+  padding: 3.25rem 1.5rem 2.75rem;
+}
+
+.publication-header {
+  max-width: var(--max-content-width);
+  margin: 0 auto;
+}
+
+.publication-header::after {
+  content: '';
+  display: block;
+  width: min(420px, 55%);
+  height: 1px;
+  margin: 2rem auto 0;
+  background: var(--color-border);
+}
+
+.conference-badge {
+  margin-bottom: 1.1rem;
+  font-size: 1.05rem;
+  font-weight: 500;
+}
+
+.conference-badge a {
+  color: var(--color-primary) !important;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.conference-badge a:hover {
+  color: var(--color-primary-dark) !important;
+  text-decoration: underline;
+}
+
+.badge-spotlight {
+  display: inline-block;
+  margin-left: 0.5rem;
+  padding: 0.15rem 0.7rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  background: #eef4fa;
+  border: 1px solid #c5d9eb;
+  border-radius: 999px;
+  vertical-align: middle;
+}
+
+.publication-title {
+  font-family: 'Google Sans', sans-serif;
+  font-size: clamp(1.45rem, 3.2vw, 2.1rem);
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--color-text);
+  max-width: 52rem;
+  margin: 0 auto 1.5rem;
+}
+
+.publication-authors {
+  margin-top: 0.25rem;
+  line-height: 1.85;
+  font-family: 'Google Sans', sans-serif;
+  color: var(--color-text);
+}
+
+.publication-authors a {
+  color: var(--color-text) !important;
+}
+
+.publication-authors a:hover {
+  color: var(--color-primary) !important;
+  text-decoration: underline;
+}
+
+.publication-affiliations {
+  margin-top: 0.85rem;
+  line-height: 1.7;
+}
+
+.publication-footnotes {
+  margin-top: 0.45rem;
+  font-size: 0.9rem !important;
+}
+
+.publication-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 1.6rem;
+}
+
+.link-block {
+  display: inline-block;
 }
 
 .link-block a {
-    margin-top: 5px;
-    margin-bottom: 5px;
+  margin: 0;
 }
+
+.btn-paper {
+  background: #fff !important;
+  color: var(--color-primary) !important;
+  border: 1px solid #c5d9eb !important;
+  font-weight: 500;
+  padding-left: 1.25em;
+  padding-right: 1.25em;
+  transition: background 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+}
+
+.btn-paper:hover {
+  background: #eef4fa !important;
+  border-color: var(--color-primary) !important;
+  transform: translateY(-1px);
+}
+
+.btn-paper.is-disabled,
+.btn-paper.is-disabled:hover {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+  background: #f8f9fa !important;
+  color: var(--color-text-muted) !important;
+  border-color: var(--color-border) !important;
+}
+
+.author-block {
+  display: inline-block;
+}
+
+.text_gray {
+  color: var(--color-text-muted);
+}
+
+.text_blue {
+  color: var(--color-primary);
+}
+
+.text_green {
+  color: #4d9b59;
+}
+
+/* ── Teaser section ── */
+
+.section-teaser {
+  padding-top: 2.5rem;
+  padding-bottom: 2rem;
+}
+
+.teaser-videos {
+  margin-bottom: 1.25rem;
+}
+
+.teaser-video {
+  display: block;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.section-teaser .content p {
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+/* ── Content sections ── */
+
+.section {
+  padding: 2.75rem 1.5rem;
+}
+
+.section .container.is-max-desktop {
+  max-width: var(--max-content-width);
+}
+
+.section .title.is-3 {
+  margin-bottom: 1.25rem;
+  font-family: 'Google Sans', sans-serif;
+}
+
+.section .content p {
+  margin-bottom: 1rem;
+  text-align: justify;
+}
+
+.interpolation-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 1rem 0 1.5rem;
+}
+
+/* ── Citation ── */
+
+#BibTeX {
+  background: var(--color-bg-soft);
+}
+
+#BibTeX .title.is-3 {
+  margin-bottom: 1rem;
+}
+
+#BibTeX pre {
+  background-color: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  padding: 1.25rem 1.5rem;
+  overflow-x: auto;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+#BibTeX pre code {
+  font-size: 0.88rem;
+  line-height: 1.55;
+}
+
+/* ── Legacy helpers ── */
 
 .teaser .hero-body {
   padding-top: 0;
@@ -19,61 +250,26 @@ body {
 
 .teaser video {
   object-fit: fill;
-  
 }
-#glass{
+
+#glass {
   margin-left: -10px;
 }
 
-.publication-title {
-    font-family: 'Google Sans', sans-serif;
-}
+@media screen and (max-width: 768px) {
+  .hero-publication .hero-body {
+    padding: 2rem 1rem 2rem;
+  }
 
-.publication-authors {
-    font-family: 'Google Sans', sans-serif;
-}
+  .publication-authors {
+    font-size: 1rem !important;
+  }
 
-.publication-authors a {
-   color: #3F7747 !important;
-}
+  .publication-affiliations {
+    font-size: 0.9rem !important;
+  }
 
-.conference-name a {
-   color: #4d9b59 !important;
-}
-
-.publication-authors a:hover {
-    text-decoration: underline;
-}
-
-.author-block {
-  display: inline-block;
-}
-
-.publication-authors {
-  color: #383d45;
-}
-
-.text_gray {
-  color: #747f90;
-}
-
-.text_blue {
-  color:#3870A5;
-}
-
-.text_green {
-  color:#4d9b59;
-}
-
-#BibTeX pre {
-  background-color: #f5f5f5;
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
-  padding: 1.25rem;
-  overflow-x: auto;
-}
-
-#BibTeX pre code {
-  font-size: 0.9rem;
-  line-height: 1.5;
+  .section {
+    padding: 2rem 1rem;
+  }
 }

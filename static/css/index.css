@@ -64,3 +64,16 @@ body {
 .text_green {
   color:#4d9b59;
 }
+
+#BibTeX pre {
+  background-color: #f5f5f5;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 1.25rem;
+  overflow-x: auto;
+}
+
+#BibTeX pre code {
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
